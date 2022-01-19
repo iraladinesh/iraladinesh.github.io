@@ -1,1 +1,199 @@
-"Hello World" 
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="vstyle.css">
+    <style>
+	* {
+		box-sizing: border-box;
+	}
+
+	#tabsDiv {
+		height: 500px;
+		border: 2px solid #c0c0c0;
+	}
+
+	 ul {
+		height: 300px;
+		padding: 0px 5px;
+	}
+
+	 li {
+		width: 15%;
+		height: 60px;
+	}
+
+	 button {
+		float: left;
+		border: 1px solid #c0c0c0;
+		background-color: #f1f0f4;
+	}
+
+	/* Button to open the content */
+	 button {
+		display: block;
+		background-color: inherit;
+		color: black;
+		padding: 25px 15px;
+		width: 100%;
+		text-align: left;
+		cursor: pointer;
+	}
+
+	/* Button styling on mouse hover */
+	 button:hover {
+		background-color: #d1d1d1;
+		color: lime;
+	}
+
+	 button.active {
+		background-color: #c0c0c0;
+	}
+
+	/* Content for tabs*/
+	.contentClass {
+		display: none;
+		position: absolute;
+		left: 18%;
+		padding: 0px 15px;
+		width: 70%;
+		border-style: none;
+		height: 300px;
+	}
+</style>
+
+</head>
+
+<body>
+	<h2 style="color:black">
+		Onboarding Form
+	</h2>
+
+	<!--div id="tabsDiv"-->
+		<div id="Update SAM" class="contentClass">
+			<h3>SAM Updation</h3>
+
+			<p>Click the below button to open SAM</p>
+			<a href="https://www.google.com" target="_blank">
+		<button><B>Update SAM</B></button>
+		</a>
+		</div>
+
+		<div id="PMO Details" class="contentClass">
+			<h3>PMO Details</h3>
+
+			<p>Click Below Button to view the Details</p>
+			<button onclick="pmoFunction()"><B>PMO Details</B></button>
+		<p id ="PMO"></p>
+		<p>Click On the <B>Format Button</B> To Open Mail Format</p>
+		<a href = "https://www.google.com" target="_blank">
+		<button><B>Format</B></button>
+		</a>
+		<p>Click the below button to send a mail for raising a request in R2D2</p>
+		<a href= "mailto:dinesh.irala@capgemini.com?subject=Raising Request in R2D2&body= Start Date- %0D End Date- %0D Grade- %0D Location- %0D Job Description-   %0D Format and mail Ids are yet to provide,%0D%20Test Data ">
+		<button><B>Mail</B></button>
+		</a>
+		</div>
+
+		<div id="Req Id Update" class="contentClass">
+			<h3>Req ID Update</h3>
+
+			<p>Click on the below button to Update SAM</p>
+			<a href="https://www.google.com" target="_blank">
+		<button><B>Update SAM</B></button>
+		</a>
+		</div>
+
+		<div id="Staffing Team" class="contentClass">
+			<h3>Staffing Team</h3>
+           <p></p>
+		</div>
+
+		<ul class="ulClass" style="height:300px">
+			<li style="list-style-type:none;">
+				<button class="linkClass" onclick="displayContent(event, 'Update SAM')">Update SAM</button>
+			</li>
+			
+			<li style="list-style-type:none;">
+				<button class="linkClass" onclick="displayContent(event, 'PMO Details')">PMO Details</button>
+			</li>
+
+			<li style="list-style-type:none;">
+				<button class="linkClass" onclick="displayContent(event, 'Req Id Update')">Update Req ID</button>
+			</li>
+
+			<li style="list-style-type:none;">
+				<button class="linkClass" onclick="displayContent(event, 'Staffing Team')">Staffing Team</button>
+			</li>
+            
+            <li style ="list-style-type:none;">
+                <button class = "linkClass" onclick = "displayContent(event,'algorithms')"> SoftBlock</button>
+            </li>
+             
+             <li style ="list-style-type:none;">
+                <button class = "linkClass" onclick = "displayContent(event,'algorithms')">R2D2 Updation</button>
+             </li>  
+              
+             <li style ="list-style-type:none;">
+                <button class = "linkClass" onclick = "displayContent(event,'algorithms')">Update SAM and GEM</button>
+             </li>  
+               
+             <!-- li style ="list-style-type:none;">
+                <button class = "linkClass" onclick = "displayContent(event,'algorithms')">R2D2 Updation</button>
+             </li-->
+                
+             
+             
+              <li style ="list-style-type:none;">
+                <button class = "linkClass" onclick = "displayContent(event,'algorithms')">RSA Token Request</button>
+              </li>
+              
+               <li style ="list-style-type:none;">
+                <button class = "linkClass" onclick = "displayContent(event,'algorithms')">Timesheets Check</button>
+              </li>
+              
+               <li style ="list-style-type:none;">
+                <button class = "linkClass" onclick = "displayContent(event,'algorithms')">Supervisor Change</button>
+              </li>
+		</ul>
+	<!--/div-->
+
+	<script>
+	function pmoFunction(){
+		document.getElementById("PMO").innerHTML="TANAY";
+	}
+    function displayContent(event, contentNameID) {
+
+	let content =
+		document.getElementsByClassName("contentClass");
+	let totalCount = content.length;
+
+	// Loop through the content class
+	// and hide the tabs first
+	for (let count = 0;
+		count < totalCount; count++) {
+		content[count].style.display = "none";
+	}
+
+	let links =
+		document.getElementsByClassName("linkClass");
+	totalLinks = links.length;
+
+	// Loop through the links and
+	// remove the active class
+	for (let count = 0;
+		count < totalLinks; count++) {
+		links[count].classList.remove("active");
+	}
+
+	// Display the current tab
+	document.getElementById(contentNameID)
+		.style.display = "block";
+
+	// Add the active class to the current tab
+	event.currentTarget.classList.add("active");
+}
+</script>	
+</body>
+
+</html>
